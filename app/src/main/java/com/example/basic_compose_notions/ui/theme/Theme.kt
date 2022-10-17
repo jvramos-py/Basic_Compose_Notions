@@ -13,7 +13,7 @@ private val DarkColorPalette = darkColors(
     surface = Blue,
     onSurface = Navy,
     primary = Navy,
-    onPrimary = Chartreuse
+    onPrimary = Chartreuse,
 )
 
 private val LightColorPalette = lightColors(
