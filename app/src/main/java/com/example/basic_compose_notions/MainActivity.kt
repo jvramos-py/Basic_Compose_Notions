@@ -19,7 +19,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basic_compose_notions.ui.theme.Basic_Compose_NotionsTheme
 
@@ -52,7 +51,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun OnBoardingScreen(onContinuedClicked: () -> Unit) {
-    Surface() {
+    Surface {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -127,13 +126,5 @@ fun Greeting(name: String) {
                 )
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Basic_Compose_NotionsTheme {
-        MyApp()
     }
 }
