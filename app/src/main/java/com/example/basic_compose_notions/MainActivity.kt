@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basic_compose_notions.ui.theme.Basic_Compose_NotionsTheme
@@ -91,13 +92,21 @@ fun Greeting(name: String) {
         color = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        Row(modifier = Modifier.padding(24.dp)) {
+        Row(
+            modifier = Modifier
+                .padding(24.dp)
+
+        ) {
             Column(modifier = Modifier
                 .weight(1f)
                 .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             ) {
-                Text(text = "Hello,")
-                Text(text = name)
+                Text(text = "Hello,", style = MaterialTheme.typography.h6.copy(
+                    fontWeight = FontWeight.ExtraBold
+                ))
+                Text(text = name, style = MaterialTheme.typography.h6.copy(
+                    fontWeight = FontWeight.ExtraBold
+                ))
             }
             OutlinedButton(
                 onClick = { isExpanded = !isExpanded }
