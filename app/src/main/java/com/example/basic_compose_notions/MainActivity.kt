@@ -10,10 +10,14 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -95,7 +99,6 @@ fun Greeting(name: String) {
         Row(
             modifier = Modifier
                 .padding(24.dp)
-
         ) {
             Column(modifier = Modifier
                 .weight(1f)
@@ -107,11 +110,21 @@ fun Greeting(name: String) {
                 Text(text = name, style = MaterialTheme.typography.h6.copy(
                     fontWeight = FontWeight.ExtraBold
                 ))
+                if (isExpanded) {
+                    Text(text = ("Composem ipsum color sit lazy, " +
+                            "padding theme elit, sed do bouncy. ").repeat(4),
+                    )
+                }
             }
-            OutlinedButton(
-                onClick = { isExpanded = !isExpanded }
-            ) {
-               Text (if (isExpanded) "Show less" else "Show More")
+            IconButton(onClick = {isExpanded = !isExpanded}) {
+                Icon(
+                    imageVector = if (isExpanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+                    contentDescription = if (isExpanded) {
+                        stringResource(id = R.string.show_less)
+                    } else {
+                        stringResource(id = R.string.show_more)
+                    }
+                )
             }
         }
     }
